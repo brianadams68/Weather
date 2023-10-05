@@ -1,8 +1,11 @@
 "use client";
+import { useState } from "react";
 
 import Input from "./Components/Input";
 
 const Home = () => {
+  const [data, setData] = useState({});
+  
   return (
     <div className="bg-cover bg-gradient-to-r from-blue-500 to-blue-300 h-fit">
       <div className="bg-white/25 w-full flex flex-col h-full">
@@ -17,4 +20,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;
