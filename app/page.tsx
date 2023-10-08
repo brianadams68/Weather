@@ -11,7 +11,7 @@ const Home = () => {
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key={*volver a poner el key*}&q=${location}&days=7&aqi=yes&alerts=yes`;
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=&q=${location}&days=7&aqi=yes&alerts=yes`;
 
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
@@ -49,12 +49,12 @@ const Home = () => {
   } else {
     content = (
       <>
-        <div>
+        <div className="flex md:flex-row flex-col p-12 items-center justify-between">
           <Current data={data} />
-          <WeatherDetails />
+          <WeekForecast data={data} />
         </div>
         <div>
-          <WeekForecast />
+          <WeatherDetails data={data} />
         </div>
       </>
     );
