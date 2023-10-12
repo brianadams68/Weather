@@ -4,7 +4,7 @@ import Input from "./Components/Input";
 import Current from "./Components/Current";
 import WeatherDetails from "./Components/WeatherDetails";
 import WeekForecast from "./Components/WeekForecast";
-import weatherTypes  from "./Components/weatherTypes";
+import { weatherTypes } from "./Components/weatherTypes";
 
 const Home = () => {
   const [data, setData] = useState<weatherTypes | undefined>(undefined);
