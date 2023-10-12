@@ -1,24 +1,6 @@
-interface DayForescast {
-  date: string;
-  day: {
-    condition: {
-      icon: string;
-      text: string;
-    };
-    mintemp_c: number;
-    maxtemp_c: number;
-  };
-}
+import { weatherTypes } from "../Components/weatherTypes";
 
-interface WeekForecastProps {
-  data: {
-    forecast: {
-      forecastday: DayForescast[];
-    };
-  };
-}
-
-const WeekForecast = ({ data }: WeekForecastProps) => {
+const WeekForecast = ({ data }: weatherTypes) => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 w-full">
       {data.forecast.forecastday.map((day, index) => (

@@ -4,29 +4,9 @@ import { WiHumidity } from "react-icons/wi";
 import { MdAir } from "react-icons/md";
 import { CiTempHigh } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
+import { weatherTypes } from "../Components/weatherTypes";
 
-interface WeatherDetailsProps {
-  data: {
-    current: {
-      wind_kph: number;
-      humidity: number;
-      wind_dir: string;
-      pressure_mb: number;
-      feelslike_c: number;
-      vis_km: number;
-    };
-    forecast: {
-      forecastday: {
-        astro: {
-          sunrise: string;
-          sunset: string;
-        };
-      }[];
-    };
-  };
-}
-
-const WeatherDetails = ({ data }: WeatherDetailsProps) => {
+const WeatherDetails = ({ data }: weatherTypes) => {
   return (
     <>
       <div className="p-12">

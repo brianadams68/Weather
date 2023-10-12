@@ -1,23 +1,8 @@
 import { getCurrentDate } from "../Utils/currentDate";
 import { ImLocation2 } from "react-icons/im";
+import { weatherTypes } from "../Components/weatherTypes";
 
-interface CurrentProps {
-  data: {
-    current: {
-      condition: {
-        icon: string;
-        text: string;
-      };
-      temp_c: number;
-    };
-    location: {
-      name: string;
-      region: string;
-    };
-  };
-}
-
-const Current = ({ data }: CurrentProps) => {
+const Current = ({ data }: weatherTypes) => {
   const currentDate = getCurrentDate();
   const weatherIcon = data.current.condition.icon;
 

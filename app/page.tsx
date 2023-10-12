@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-
 import Input from "./Components/Input";
 import Current from "./Components/Current";
 import WeatherDetails from "./Components/WeatherDetails";
 import WeekForecast from "./Components/WeekForecast";
+import weatherTypes  from "./Components/weatherTypes";
 
 const Home = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState<weatherTypes | undefined>(undefined);
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
 
@@ -21,19 +21,19 @@ const Home = () => {
         if (!response.ok) {
           throw new Error();
         }
-        const data = await response.json();
+        const data: weatherTypes = await response.json();
         setData(data);
         setLocation("");
         setError("");
       } catch (error) {
         setError("City not found");
-        setData({});
+        setData(undefined);
       }
     }
   };
 
   let content;
-  if (Object.keys(data).length === 0 && error === "") {
+  if (data && Object.keys(data).length === 0 && error === "") {
     content = (
       <div className="text-white text-center h-screen mt-[5-rem]">
         <h2 className="text-3xl font-bold mb-4">Welcome to the weather app</h2>
