@@ -4,7 +4,7 @@ import { weatherTypes } from "../Components/weatherTypes";
 
 const Current = ({ data }: weatherTypes) => {
   const currentDate = getCurrentDate();
-  const weatherIcon = data.current.condition.icon;
+  const weatherIcon = data?.current.condition.icon;
 
   return (
     <div className="flex flex-col mb-8 md:md-0 items-start gap-2 w-1/2">
@@ -25,16 +25,16 @@ const Current = ({ data }: weatherTypes) => {
       </div>
       <div>
         <p className="text-5xl text-white">
-          {data.current.temp_c.toFixed()}
+          {data?.current.temp_c.toFixed()}
           <span>°</span>
         </p>
-        <span className="text-white">{data.current.condition.text}</span>
+        <span className="text-white">{data?.current.condition.text}</span>
       </div>
       <div>
         <div className="flex items-center text-black bg-white/90 px-2 py-2 rounded-xl">
           <ImLocation2 />
           <span>
-            {data.location.name}, {data.location.region}
+            {data?.location.name}, {data?.location.region}
           </span>
         </div>
       </div>
