@@ -4,9 +4,11 @@ import { WiHumidity } from "react-icons/wi";
 import { MdAir } from "react-icons/md";
 import { CiTempHigh } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
-import { weatherTypes } from "../Components/weatherTypes";
+import { WeatherApiResponse } from "../Types/WeatherApiResponse";
 
-const WeatherDetails = ({ data }: weatherTypes) => {
+type WeatherDetailsProps = Partial<Pick<WeatherApiResponse, 'current' | 'forecast'>>
+
+const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
   return (
     <>
       <div className="p-12">
@@ -15,7 +17,7 @@ const WeatherDetails = ({ data }: weatherTypes) => {
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Wind Speed</h3>
-              <h3 className="text-1xl">{data?.current.wind_kph} KM/H</h3>
+              <h3 className="text-1xl">{current?.wind_kph} KM/H</h3>
             </div>
             <div>
               <GiWindSlap fontSize={40} />
@@ -26,7 +28,7 @@ const WeatherDetails = ({ data }: weatherTypes) => {
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Humidity</h3>
-              <h3 className="text-1xl">{data?.current.humidity}%</h3>
+              <h3 className="text-1xl">{current?.humidity}%</h3>
             </div>
             <div>
               <WiHumidity fontSize={40} />
@@ -37,7 +39,7 @@ const WeatherDetails = ({ data }: weatherTypes) => {
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Wind Direction</h3>
-              <h3 className="text-1xl">{data?.current.wind_dir}</h3>
+              <h3 className="text-1xl">{current?.wind_dir}</h3>
             </div>
             <div>
               <GiCompass fontSize={40} />
@@ -49,7 +51,7 @@ const WeatherDetails = ({ data }: weatherTypes) => {
             <div>
               <h3 className="text-2xl">Sunrise</h3>
               <h3 className="text-1xl">
-                {data?.forecast.forecastday[0].astro.sunrise}
+                {forecast?.forecastday[0].astro.sunrise}
               </h3>
             </div>
             <div>
@@ -62,7 +64,7 @@ const WeatherDetails = ({ data }: weatherTypes) => {
             <div>
               <h3 className="text-2xl">Sunsent</h3>
               <h3 className="text-1xl">
-                {data?.forecast.forecastday[0].astro.sunset}
+                {forecast?.forecastday[0].astro.sunset}
               </h3>
             </div>
             <div>
@@ -74,7 +76,7 @@ const WeatherDetails = ({ data }: weatherTypes) => {
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Air Pressure</h3>
-              <h3 className="text-1xl">{data?.current.pressure_mb} hPa</h3>
+              <h3 className="text-1xl">{current?.pressure_mb} hPa</h3>
             </div>
             <div>
               <MdAir fontSize={40} />
@@ -85,7 +87,7 @@ const WeatherDetails = ({ data }: weatherTypes) => {
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Feel Like</h3>
-              <h3 className="text-1xl">{data?.current.feelslike_c}°</h3>
+              <h3 className="text-1xl">{current?.feelslike_c}°</h3>
             </div>
             <div>
               <CiTempHigh fontSize={40} />
@@ -96,7 +98,7 @@ const WeatherDetails = ({ data }: weatherTypes) => {
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Visibility</h3>
-              <h3 className="text-1xl">{data?.current.vis_km} KM</h3>
+              <h3 className="text-1xl">{current?.vis_km} KM</h3>
             </div>
             <div>
               <FaEye fontSize={40} />

@@ -4,15 +4,19 @@ import Input from "./Components/Input";
 import Current from "./Components/Current";
 import WeatherDetails from "./Components/WeatherDetails";
 import WeekForecast from "./Components/WeekForecast";
-import { weatherTypes } from "./Components/weatherTypes";
+import { WeatherApiResponse }  from "./Types/WeatherApiResponse";
+
+ 
+
 
 const Home = () => {
-  const [data, setData] = useState<weatherTypes | undefined>(undefined);
+  const [data, setData] = useState<WeatherApiResponse | undefined>(undefined);
   const [location, setLocation] = useState("");
   const [error, setError] = useState("");
 
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_APP}&q=${location}&days=7&aqi=yes&alerts=yes`;
 
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_APP}&q=${location}&days=7&aqi=yes&alerts=yes`;
+  console.log(data);
   const handleSearch = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -21,7 +25,7 @@ const Home = () => {
         if (!response.ok) {
           throw new Error();
         }
-        const data: weatherTypes = await response.json();
+        const data: WeatherApiResponse = await response.json();
         setData(data);
         setLocation("");
         setError("");
@@ -51,11 +55,11 @@ const Home = () => {
     content = (
       <>
         <div className="flex md:flex-row flex-col p-12 items-center justify-between">
-          <Current data={data} />
-          <WeekForecast data={data} />
+          <Current current={data?.current} location={data?.location}/>
+          <WeekForecast forecast={data?.forecast} />
         </div>
         <div>
-          <WeatherDetails data={data} />
+          <WeatherDetails current={data?.current} forecast={data?.forecast} />
         </div>
       </>
     );

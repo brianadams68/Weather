@@ -1,9 +1,11 @@
-import { weatherTypes } from "../Components/weatherTypes";
+import { WeatherApiResponse } from "../Types/WeatherApiResponse";
 
-const WeekForecast = ({ data }: weatherTypes) => {
+type WeekForecastProps = Partial<Pick<WeatherApiResponse, 'forecast'>>
+
+const WeekForecast = ({ forecast }: WeekForecastProps) => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 w-full">
-      {data?.forecast.forecastday.map((day, index) => (
+      {forecast?.forecastday.map((day, index) => (
         <div
           key={index}
           className="bg-white/40 p-2 text-center rounded-lg flex flex-col items-center"
