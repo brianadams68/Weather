@@ -10,14 +10,14 @@ const WeekForecast = ({ forecast }: WeekForecastProps) => {
           key={index}
           className="bg-white/40 p-2 text-center rounded-lg flex flex-col items-center"
         >
-          <p className="text-white">
+          <div className="text-white">
             {new Date(day.date).toLocaleString("en-US", { weekday: "short" })}
             <img src={day.day.condition.icon} alt={day.day.condition.text} />
             <div>
               <p>L {day.day.mintemp_c.toFixed()}°</p>
               <p>H {day.day.maxtemp_c.toFixed()}°</p>
             </div>
-          </p>
+          </div>
         </div>
       ))}
     </div>

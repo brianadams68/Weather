@@ -14,6 +14,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
       <div className="p-12">
         <h1 className="mb-4 text-2xl text-white">Weather Details</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Wind Speed</h3>
@@ -23,8 +24,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
               <GiWindSlap fontSize={40} />
             </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Humidity</h3>
@@ -34,8 +34,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
               <WiHumidity fontSize={40} />
             </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Wind Direction</h3>
@@ -45,8 +44,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
               <GiCompass fontSize={40} />
             </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Sunrise</h3>
@@ -58,8 +56,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
               <BsSunrise fontSize={40} />
             </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Sunsent</h3>
@@ -71,8 +68,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
               <BsSunset fontSize={40} />
             </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Air Pressure</h3>
@@ -82,8 +78,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
               <MdAir fontSize={40} />
             </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Feel Like</h3>
@@ -93,8 +88,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
               <CiTempHigh fontSize={40} />
             </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+       
           <div className="bg-white/50 flex p-4 items-center justify-center gap-6 rounded-xl">
             <div>
               <h3 className="text-2xl">Visibility</h3>
@@ -104,6 +98,7 @@ const WeatherDetails = ({ current, forecast }: WeatherDetailsProps) => {
               <FaEye fontSize={40} />
             </div>
           </div>
+        
         </div>
       </div>
     </>
